@@ -64,13 +64,23 @@ The project features a modern cyberpunk-inspired interface, secure authenticatio
 
 ## 🤖 AI Chat Assistant
 
-![AI Chat](screenshots/ai-chat.png)
+<img width="949" height="443" alt="image" src="https://github.com/user-attachments/assets/eeb9ee27-41d8-47fd-a817-ebbdc9f5e101" />
+
 
 ---
 
 ## 📚 Study Helper
 
 ![Study Helper](screenshots/study-helper.png)
+
+<img width="946" height="434" alt="image" src="https://github.com/user-attachments/assets/94fba0bc-93fe-49c7-b95c-8fffdc5662af" />
+
+<img width="945" height="436" alt="image" src="https://github.com/user-attachments/assets/ae7548a1-91ed-4e7a-9672-9d214cd8e833" />
+
+<img width="948" height="440" alt="image" src="https://github.com/user-attachments/assets/b9904fa8-b229-4a14-b308-e21bb33915d5" />
+
+<img width="947" height="435" alt="image" src="https://github.com/user-attachments/assets/ddfa0ab5-0b9b-4d5e-9abc-bf63f4e7ffd0" />
+
 
 ---
 
