@@ -39,19 +39,26 @@ The project features a modern cyberpunk-inspired interface, secure authenticatio
 
 ## 🔐 Login
 
-![Login](screenshots/login.png)
+
 
 ---
 
 ## 📝 Sign Up
 
-![Signup](screenshots/signup.png)
+<img width="950" height="414" alt="image" src="https://github.com/user-attachments/assets/0ab19637-64a1-4b1a-8f8a-b9029f2cb85d" />
+<img width="947" height="280" alt="image" src="https://github.com/user-attachments/assets/b1e774b4-3ac3-418b-be2b-b953b9919cb1" />
+
 
 ---
 
 ## 📊 Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+<img width="947" height="434" alt="image" src="https://github.com/user-attachments/assets/9fd9e2d2-a3b7-4038-8da7-2a63ca37c2aa" />
+<img width="944" height="443" alt="image" src="https://github.com/user-attachments/assets/87f77677-784f-489e-bea3-e2972e6db079" />
+<img width="948" height="437" alt="image" src="https://github.com/user-attachments/assets/e80b7104-2fff-4711-a41b-bb883f4737ea" />
+<img width="949" height="437" alt="image" src="https://github.com/user-attachments/assets/15df8ad1-01ef-4345-91c1-e93c3a20417a" />
+
+
 
 ---
 
