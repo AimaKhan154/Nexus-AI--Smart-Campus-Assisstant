@@ -62,16 +62,10 @@ The project features a modern cyberpunk-inspired interface, secure authenticatio
 
 ---
 
-## 🤖 AI Chat Assistant
+
+## 🤖 AI Study Helper
 
 <img width="949" height="443" alt="image" src="https://github.com/user-attachments/assets/eeb9ee27-41d8-47fd-a817-ebbdc9f5e101" />
-
-
----
-
-## 📚 Study Helper
-
-![Study Helper](screenshots/study-helper.png)
 
 <img width="946" height="434" alt="image" src="https://github.com/user-attachments/assets/94fba0bc-93fe-49c7-b95c-8fffdc5662af" />
 
@@ -86,19 +80,30 @@ The project features a modern cyberpunk-inspired interface, secure authenticatio
 
 ## 🗺 Campus Map
 
-![Campus Map](screenshots/campus-map.png)
+<img width="948" height="440" alt="image" src="https://github.com/user-attachments/assets/7f4fda4b-ec56-4b91-97a5-b926c4d1c555" />
+
+<img width="946" height="440" alt="image" src="https://github.com/user-attachments/assets/2826c736-c8d5-49fc-a118-57ea39749608" />
+
 
 ---
 
 ## 📢 Announcements
 
-![Announcements](screenshots/announcements.png)
+<img width="959" height="435" alt="image" src="https://github.com/user-attachments/assets/21ce7837-bd5e-4f26-9452-1aa3b03e8bee" />
+
 
 ---
 
 ## 👨‍🏫 Faculty Directory
 
-![Faculty Directory](screenshots/faculty-directory.png)
+<img width="944" height="443" alt="image" src="https://github.com/user-attachments/assets/6260a768-50dd-4d02-b514-0bfabf685d01" />
+
+<img width="959" height="441" alt="image" src="https://github.com/user-attachments/assets/55bd02f4-df77-48bc-86b9-9a34a0ced3b9" />
+
+<img width="959" height="439" alt="image" src="https://github.com/user-attachments/assets/c41185d0-3f9b-4f8e-b0ba-c1235734a14f" />
+
+<img width="760" height="312" alt="image" src="https://github.com/user-attachments/assets/b3a5779e-260b-4f52-80ef-158655c767ac" />
+
 
 ---
 
