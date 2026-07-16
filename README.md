@@ -39,6 +39,7 @@ The project features a modern cyberpunk-inspired interface, secure authenticatio
 
 ## 🔐 Login
 
+<img width="947" height="433" alt="image" src="https://github.com/user-attachments/assets/36965146-04b8-4c91-b99f-d114b9ee1e7e" />
 
 
 ---
@@ -109,13 +110,20 @@ The project features a modern cyberpunk-inspired interface, secure authenticatio
 
 ## 🤝 Peer Connect
 
-![Peer Connect](screenshots/peer-connect.png)
+<img width="948" height="445" alt="image" src="https://github.com/user-attachments/assets/b8725f5d-f0de-4972-8ce5-c72a75e294a7" />
+
+<img width="947" height="437" alt="image" src="https://github.com/user-attachments/assets/7f089e6d-d830-4888-b1f2-66067e76e5c6" />
+
+<img width="951" height="441" alt="image" src="https://github.com/user-attachments/assets/c5df75a2-16cc-4fc5-9d64-3d83a291af5b" />
+
 
 ---
 
 ## 💬 Feedback
 
-![Feedback](screenshots/feedback.png)
+<img width="950" height="431" alt="image" src="https://github.com/user-attachments/assets/d2fb321d-e769-4ff1-878a-c7965ec3176b" />
+
+<img width="949" height="434" alt="image" src="https://github.com/user-attachments/assets/88a5d895-494b-4801-aeb7-a162ffe96391" />
 
 ---
 
@@ -330,12 +338,3 @@ git push origin feature/new-feature
 
 ---
 
-# ⭐ Show Your Support
-
-If you like this project, consider giving it a ⭐ on GitHub.
-
----
-
-# 📄 License
-
-This project is licensed under the MIT License.
