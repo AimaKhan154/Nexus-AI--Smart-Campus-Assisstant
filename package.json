@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "workspaces": [
+    "nexus-ai-—-smart-campus-assistant"
+  ],
+  "scripts": {
+    "dev": "npm --workspace=nexus-ai-—-smart-campus-assistant run dev",
+    "build": "npm --workspace=nexus-ai-—-smart-campus-assistant run build",
+    "start": "npm --workspace=nexus-ai-—-smart-campus-assistant run start"
+  }
+}

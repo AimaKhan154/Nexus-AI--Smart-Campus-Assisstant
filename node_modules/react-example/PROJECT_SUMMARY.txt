@@ -1,0 +1,437 @@
+================================================================================
+PROJECT SUMMARY: NEXUS AI - SMART CAMPUS ASSISTANT
+================================================================================
+Last Updated: June 10, 2026
+Institution: Sir Syed University of Engineering and Technology, Karachi
+
+================================================================================
+1. PROJECT OVERVIEW
+================================================================================
+
+Nexus AI is a futuristic, intelligent digital campus ecosystem built for Sir 
+Syed University. It combines modern web technologies with AI capabilities to 
+provide students with an integrated platform for academic and social life.
+
+Design Philosophy: Quantum/Cyberpunk aesthetic with glassmorphism UI, neon glow 
+effects, and radial gradients.
+
+================================================================================
+2. CORE FEATURES & PAGES
+================================================================================
+
+2.1 LANDING PAGE (Landing.tsx)
+- Public welcome page
+- First touchpoint for users
+- Route: /
+
+2.2 AUTHENTICATION SYSTEM
+- Login Page (Login.tsx) - Route: /login
+- Signup Page (Signup.tsx) - Route: /signup
+- Features: JWT-based authentication, Bcrypt password hashing
+- Context: AuthContext.tsx manages user state globally
+- Session storage: localStorage for tokens and user data
+- Roles: student, faculty, admin
+
+2.3 DASHBOARD (Dashboard.tsx) - Route: /dashboard [PROTECTED]
+- Central hub displaying user statistics
+- Stats tracked: Attendance (85%), Active Courses (6), Next Class time, Assignments (2 Due)
+- Views: Daily, Courses, Assignments
+- Displays course list with attendance tracking
+- Shows upcoming assignments with due dates
+- DB health status checker (/api/health endpoint)
+
+
+
+2.5 STUDY HELPER (StudyHelper.tsx) - Route: /study-helper [PROTECTED]
+- AI-powered study companion
+- Features: Note summarization, study schedules, complex topic breakdown
+- Component: Neural Study Helper
+
+2.6 CAMPUS MAP (CampusMap.tsx) - Route: /map [PROTECTED]
+- Interactive campus navigation system
+- Features: Department locations, lab locations, facility finder
+- Component: Campus Navigator
+
+2.7 ANNOUNCEMENTS (Announcements.tsx) - Route: /announcements [PROTECTED]
+- Real-time notification feed
+- Features: University events, academic notices
+- Component: Smart Announcements system
+
+2.8 FACULTY DIRECTORY (Faculty.tsx) - Route: /faculty [PROTECTED]
+- Professor and staff search/directory
+- Features: Professor contact info, university staff finder
+
+2.9 PEER CONNECT (PeerConnect.tsx) - Route: /peer-connect [PROTECTED]
+- Social networking for students
+- Features: Study group finder, cross-department connections
+- Component: Peer connection network
+
+2.10 FEEDBACK (Feedback.tsx) - Route: /feedback [PROTECTED]
+- User feedback collection system
+- Security: Only users can submit feedback on themselves
+
+2.11 LAYOUT COMPONENT (Layout.tsx)
+- Wrapper for all protected routes
+- Includes: Sidebar navigation, user menu, theme controls
+- Sidebar items: Dashboard, AI Study Helper, Peer Connect, AI Chat, Map, 
+              Announcements, Faculty, Feedback
+- Features: Mobile responsive menu toggle, logout, account deletion
+
+================================================================================
+3. TECHNICAL STACK
+================================================================================
+
+3.1 FRONTEND
+- Framework: React 19 (with React DOM 19)
+- Language: TypeScript 5.8.2
+- Styling: 
+  * Tailwind CSS 4.1.14 (@tailwindcss/vite)
+  * Custom CSS (index.css)
+  * Utilities: clsx, tailwind-merge for className management
+- Build Tool: Vite 6.2.3
+- Build Plugin: @vitejs/plugin-react 5.0.4
+
+3.2 ANIMATION & UI
+- Framer Motion: 12.38.0 (legacy)
+- Motion: 12.23.24 (new Framer Motion)
+- Icons: Lucide React 0.546.0
+- Used for: Smooth transitions, motion components, AnimatePresence
+
+3.3 ROUTING
+- React Router: 7.15.0
+- Protected routes via ProtectedRoute component
+- Routes configured in App.tsx
+
+3.4 BACKEND
+- Runtime: Node.js with Express 4.21.2
+- Server File: server.ts (runs via tsx during dev, esbuild for production)
+- Port: 3000 (0.0.0.0)
+- Development: npm run dev (tsx server.ts)
+- Production: npm run build && npm start
+
+3.5 DATABASE
+- Primary: MongoDB (via Mongoose 9.6.2)
+- Fallback: In-memory store when DB unavailable (demo mode)
+- Connection: connectDB() in src/lib/mongodb.ts
+- Model: User schema (User.ts)
+
+3.6 AUTHENTICATION & SECURITY
+- JWT: jsonwebtoken 9.0.3
+- Password Hashing: bcryptjs 3.0.3
+- Token Secret: JWT_SECRET from .env or fallback 'nexus-quantum-secret-key-2024'
+- Expiry: 7 days per token
+
+3.7 AI INTEGRATION
+- Provider: Google Gemini API
+- Package: @google/genai 1.29.0
+- Model: gemini-3-flash-preview
+- API Key: Environment variable GEMINI_API_KEY
+- Helper: src/lib/gemini.ts with generateGeminiContent() function
+
+3.8 ENVIRONMENT & BUILD
+- Environment: dotenv 17.4.2 for .env file management
+- Build Tool: esbuild 0.25.0 (for server bundling)
+- Compiler: tsx 4.21.0 (TypeScript runtime)
+
+3.9 CONFIGURATION FILES
+- tsconfig.json: ES2022 target, React JSX, path aliases (@/*)
+- vite.config.ts: Tailwind, React plugins, HMR configuration
+- package.json: Scripts for dev, build, start, clean, lint
+
+================================================================================
+4. PROJECT STRUCTURE
+================================================================================
+
+ROOT DIRECTORY:
+├── index.html              - HTML entry point
+├── package.json            - Dependencies and scripts
+├── tsconfig.json           - TypeScript configuration
+├── vite.config.ts          - Vite build configuration
+├── server.ts               - Express server with auth routes
+├── README.md               - Project documentation
+├── security_spec.md        - Security specifications
+├── metadata.json           - Project metadata
+├── PROJECT_SUMMARY.txt     - This file
+
+SRC/ DIRECTORY:
+├── main.tsx                - React app entry point
+├── App.tsx                 - Main app component with routing
+├── index.css               - Global styles
+│
+├── components/
+│   └── Layout.tsx          - Sidebar, navigation, wrapper component
+│
+├── context/
+│   └── AuthContext.tsx     - Global authentication context
+│                            (user state, login, signup, logout, deleteAccount)
+│
+├── lib/
+│   ├── mongodb.ts          - MongoDB connection handler
+│   └── gemini.ts           - Google Gemini AI integration
+│
+├── models/
+│   └── User.ts             - Mongoose User schema
+│
+└── pages/
+    ├── Landing.tsx         - Public landing page
+    ├── Login.tsx           - Login form
+    ├── Signup.tsx          - Signup form
+    ├── Dashboard.tsx       - Main dashboard [PROTECTED]
+    ├── AIChat.tsx          - AI chat interface [PROTECTED]
+    ├── StudyHelper.tsx     - Study helper page [PROTECTED]
+    ├── CampusMap.tsx       - Campus map page [PROTECTED]
+    ├── Announcements.tsx   - Announcements feed [PROTECTED]
+    ├── Faculty.tsx         - Faculty directory [PROTECTED]
+    ├── PeerConnect.tsx     - Peer connection network [PROTECTED]
+    └── Feedback.tsx        - Feedback form [PROTECTED]
+
+================================================================================
+5. API ENDPOINTS
+================================================================================
+
+5.1 HEALTH CHECK
+- GET /api/health
+- Response: { status, university, dbConnected, mode, uriPresent }
+- Purpose: Check DB connection and system status
+
+5.2 AUTHENTICATION
+- POST /api/auth/signup
+  Body: { name, email, password, major, role }
+  Response: { user, token }
+  Error: 400 if user exists, 500 on server error
+
+- POST /api/auth/login
+  Body: { email, password }
+  Response: { user, token }
+  Error: 401 for invalid credentials, 500 on server error
+
+5.3 USER DATA
+- User password is NEVER sent to frontend (deleted from response)
+- User sessions stored in localStorage with keys:
+  * nexus_token: JWT token
+  * nexus_user: { uid, email }
+  * nexus_profile: Full user profile object
+
+================================================================================
+6. SECURITY & AUTHENTICATION FLOW
+================================================================================
+
+6.1 USER AUTHENTICATION
+1. User signs up with name, email, password, major, role
+2. Password hashed with bcryptjs (10 salt rounds)
+3. User created in MongoDB or memory store (if DB down)
+4. JWT token generated (expires in 7 days)
+5. Token + user data sent to frontend
+
+6.2 LOGIN FLOW
+1. User submits email + password
+2. Email lookup in DB or memory
+3. Password compared with bcrypt.compare()
+4. JWT token generated on success
+5. Token stored in localStorage
+
+6.3 PROTECTED ROUTES
+- All routes except /, /login, /signup require authentication
+- ProtectedRoute component in App.tsx checks user state
+- Redirects to /login if no user
+- Routes wrapped in <ProtectedRoute> tags
+
+6.4 SECURITY SPECS
+- Users can only access/update their own data
+- Students cannot change their role to admin
+- Only admins can create announcements
+- Feedback only for own user
+- Timestamps server-generated
+
+================================================================================
+7. DATABASE MODEL
+================================================================================
+
+USER SCHEMA (MongoDB/Mongoose):
+{
+  _id: ObjectId (auto-generated),
+  name: String (required),
+  email: String (required, unique),
+  password: String (required, hashed),
+  major: String (default: 'Undecided'),
+  role: String (default: 'Student'),
+  year: String (default: '1st'),
+  interests: [String],
+  bio: String (optional),
+  createdAt: Date (default: Date.now)
+}
+
+Roles: 'student', 'faculty', 'admin'
+
+================================================================================
+8. ENVIRONMENT VARIABLES
+================================================================================
+
+REQUIRED:
+- MONGODB_URI: MongoDB connection string (optional, fallback to memory)
+- GEMINI_API_KEY: Google Gemini API key (required for AI chat)
+- JWT_SECRET: Secret key for JWT signing (fallback provided)
+- NODE_ENV: 'development' or 'production'
+- DISABLE_HMR: Set to 'true' to disable Vite HMR (for AI Studio)
+
+================================================================================
+9. BUILD & DEPLOYMENT
+================================================================================
+
+DEVELOPMENT:
+- npm install: Install dependencies
+- npm run dev: Start dev server (tsx server.ts)
+- Server runs on http://localhost:3000
+- Vite handles React HMR
+
+PRODUCTION:
+- npm run build: Build React (Vite) + Bundle server (esbuild)
+  * Outputs: dist/ with React bundle + server.cjs
+- npm start: Run production server (node dist/server.cjs)
+- Vite serves static files from dist/
+
+CLEANING:
+- npm run clean: Remove dist/ directory
+- npm run lint: Run TypeScript type check (tsc --noEmit)
+
+================================================================================
+10. KEY DEPENDENCIES & VERSIONS
+================================================================================
+
+CORE FRAMEWORKS:
+- react@19.0.1
+- react-dom@19.0.1
+- react-router-dom@7.15.0
+- express@4.21.2
+- mongoose@9.6.2
+
+STYLING & UI:
+- tailwindcss@4.1.14
+- @tailwindcss/vite@4.1.14
+- framer-motion@12.38.0
+- motion@12.23.24
+- lucide-react@0.546.0
+- clsx@2.1.1
+- tailwind-merge@3.6.0
+
+AUTHENTICATION:
+- jsonwebtoken@9.0.3
+- bcryptjs@3.0.3
+
+AI:
+- @google/genai@1.29.0
+
+BUILD & DEVELOPMENT:
+- vite@6.2.3
+- @vitejs/plugin-react@5.0.4
+- typescript@5.8.2
+- tsx@4.21.0
+- esbuild@0.25.0
+- dotenv@17.4.2
+
+================================================================================
+11. DESIGN & STYLING
+================================================================================
+
+COLOR PALETTE:
+- Quantum Cyber Cyan (Primary): #00f2ff
+- Electric Purple (Accent): #8a2be2
+- Deep Obsidian Background: Dark theme
+- Text colors: white, white/60 (secondary), white/10 (tertiary)
+
+TYPOGRAPHY:
+- Outfit: Bold futuristic headings
+- Inter: Clean UI text
+- JetBrains Mono: Technical/data display
+
+VISUAL EFFECTS:
+- Glassmorphism: Semi-transparent glass effect
+- Neon Glow: Primary color glow-text class
+- Radial Gradients: Background styling
+- Smooth Transitions: Via Motion/Framer Motion
+- Cyan/Purple Neon: Cyberpunk aesthetic
+
+CSS CLASSES:
+- glass: Glassmorphism effect
+- glow-text: Neon cyan glow on text
+- primary, accent: Color variables
+- text-primary, text-accent: Themed text colors
+
+================================================================================
+12. KEY FUNCTIONS & UTILITIES
+================================================================================
+
+AUTHENTICATION (AuthContext.tsx):
+- login(email, password): Authenticate user
+- signup(userData): Create new user account
+- logout(): Clear session
+- deleteAccount(): Permanently delete user
+- resetDatabase(): Clear all data (demo)
+
+DATABASE (mongodb.ts):
+- connectDB(): Initialize MongoDB connection with fallback
+
+AI INTEGRATION (gemini.ts):
+- getGeminiAI(): Singleton instance of GoogleGenAI
+- generateGeminiContent(prompt, history, context): Call Gemini API
+- SYSTEM_INSTRUCTION: Global AI system prompt
+
+COMPONENTS (Layout.tsx):
+- Sidebar with navigation links
+- Mobile-responsive menu
+- User profile dropdown
+- Logout functionality
+- Account deletion
+
+================================================================================
+13. IMPORTANT NOTES
+================================================================================
+
+1. FALLBACK MODE: If MongoDB is unavailable, the system uses in-memory storage
+   for demo purposes. Production requires valid MONGODB_URI.
+
+2. AI API DEPENDENCY: AI Chat feature requires valid GEMINI_API_KEY. Without it,
+   generateGeminiContent() will throw an error.
+
+3. JWT EXPIRY: Tokens expire after 7 days. Users need to re-login.
+
+4. PROTECTED ROUTES: All routes except /, /login, /signup redirect unauthenticated
+   users to /login.
+
+5. ROLE-BASED ACCESS: Currently authenticated, but role enforcement is defined
+   in security_spec.md (admin-only features not fully enforced on frontend).
+
+6. DEVELOPMENT MODE: Vite HMR is enabled by default (can be disabled with DISABLE_HMR).
+
+7. BUILD ARTIFACTS: Production build creates dist/ with:
+   - React bundle (index.html + assets)
+   - Server executable (server.cjs)
+
+8. ERROR HANDLING: Auth errors (invalid credentials, user exists) return JSON errors.
+   AI errors are displayed to user in chat interface.
+
+================================================================================
+14. QUICK REFERENCE COMMANDS
+================================================================================
+
+npm run dev                 → Start development server
+npm run build              → Build for production
+npm run start              → Start production server
+npm run clean              → Clean build artifacts
+npm run lint               → TypeScript type checking
+
+API CALLS (in code):
+POST /api/auth/signup      → Create account
+POST /api/auth/login       → Login user
+GET /api/health            → Check system status
+
+KEY FILES TO REMEMBER:
+- src/App.tsx              → Main routing setup
+- src/context/AuthContext  → Global auth state
+- server.ts                → Backend server + API routes
+- src/lib/gemini.ts        → AI integration
+- src/models/User.ts       → Database schema
+
+================================================================================
+END OF PROJECT SUMMARY
+================================================================================
